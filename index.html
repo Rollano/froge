@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TermLauncher — Download & Features</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    code, pre, .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-30 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
+      <div class="flex items-center gap-3">
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-500/15 text-cyan-400 ring-1 ring-cyan-400/30 font-mono text-sm font-bold">
+          &gt;_
+        </div>
+        <div>
+          <span class="text-base font-bold tracking-tight text-white">TermLauncher</span>
+          <span class="ml-2 hidden rounded-full bg-emerald-500/15 px-2 py-0.5 font-mono text-xs font-medium text-emerald-300 ring-1 ring-emerald-500/30 sm:inline-block">
+            v2.5 • Build 10
+          </span>
+        </div>
+      </div>
+
+      <nav class="flex items-center gap-2 sm:gap-4 text-sm">
+        <a href="#features" class="rounded-lg px-3 py-1.5 text-slate-300 transition hover:bg-slate-800 hover:text-white">
+          Features
+        </a>
+        <a href="#commands" class="rounded-lg px-3 py-1.5 text-slate-300 transition hover:bg-slate-800 hover:text-white">
+          Commands
+        </a>
+        <a id="navDownloadBtn" href="#download" class="rounded-xl bg-cyan-500 px-3.5 py-2 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-400">
+          Download
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero & Download Section -->
+  <section id="download" class="relative overflow-hidden border-b border-slate-800/70 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
+    <div class="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl"></div>
+
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+      <div class="grid items-center gap-10 lg:grid-cols-12">
+        <!-- Left Copy & Primary CTA -->
+        <div class="lg:col-span-7">
+          <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-medium text-cyan-300">
+            <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+            Terminal-First Android Launcher
+          </div>
+
+          <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+            Command-driven launcher built for speed &amp; control.
+          </h1>
+
+          <p class="mt-4 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            Run multi-window sessions, connect automatically to Termux on startup, request required permissions early, and customize your interface in a full-screen settings view.
+          </p>
+
+          <!-- Primary Download Buttons -->
+          <div class="mt-8 flex flex-wrap items-center gap-3.5">
+            <a
+              id="primaryDownloadLink"
+              href="https://github.com/Rollano/AndroidForge/releases/tag/web-build-output-45098588212"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:bg-cyan-300 active:scale-[0.99]"
+            >
+              <span>Download Release (web-build-output-45098588212)</span>
+              <span class="rounded-md bg-slate-950/15 px-2 py-0.5 font-mono text-xs">Android</span>
+            </a>
+
+            <a
+              id="sourceDownloadLink"
+              href="https://github.com/Rollano/AndroidForge/releases/tag/web-build-output-45098588212"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-700 bg-slate-900/90 px-5 py-3.5 text-sm font-semibold text-slate-200 transition hover:border-slate-500 hover:bg-slate-800"
+            >
+              <span>View Release Assets</span>
+            </a>
+          </div>
+
+          <!-- Metadata Pills -->
+          <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-xs text-slate-400 font-mono">
+            <span>Package: com.termlauncher.app</span>
+            <span>Tag: web-build-output-45098588212</span>
+            <span>SDK: minSdk 24 / compileSdk 34</span>
+          </div>
+        </div>
+
+        <!-- Right Download Link Configurator & Terminal Preview -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/90 p-5 shadow-2xl">
+            <div class="mb-3 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="h-3 w-3 rounded-full bg-rose-500/80"></span>
+                <span class="h-3 w-3 rounded-full bg-amber-400/80"></span>
+                <span class="h-3 w-3 rounded-full bg-emerald-400/80"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-400">termlauncher ~</span>
+            </div>
+
+            <div class="rounded-xl border border-slate-800 bg-slate-950 p-4 font-mono text-xs leading-relaxed text-slate-300 space-y-1.5">
+              <div><span class="text-cyan-400">$</span> check-permissions --startup</div>
+              <div class="text-emerald-400">[OK] Startup permissions &amp; ~/storage ready</div>
+              <div><span class="text-cyan-400">$</span> termux-connect --auto</div>
+              <div class="text-cyan-300">[TERMUX] Detected com.termux &amp; linked prefix</div>
+              <div><span class="text-cyan-400">$</span> settings --fullscreen</div>
+              <div class="text-slate-400">[UI] Full-window Settings &amp; About active</div>
+            </div>
+
+            <!-- Custom APK URL Helper -->
+            <div class="mt-4 border-t border-slate-800 pt-4">
+              <label for="customApkUrl" class="block text-xs font-semibold text-slate-300">
+                Direct APK / Release Link
+              </label>
+              <p class="mt-0.5 text-xs text-slate-400">
+                Paste your actual APK or GitHub Release URL to update the download button instantly.
+              </p>
+              <div class="mt-2.5 flex gap-2">
+                <input
+                  id="customApkUrl"
+                  type="url"
+                  value="https://github.com/Rollano/AndroidForge/releases/tag/web-build-output-45098588212"
+                  placeholder="https://example.com/TermLauncher.apk"
+                  class="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
+                />
+                <button
+                  id="applyUrlBtn"
+                  type="button"
+                  class="shrink-0 rounded-xl bg-slate-800 px-3.5 py-2 text-xs font-semibold text-cyan-300 ring-1 ring-slate-700 transition hover:bg-slate-700"
+                >
+                  Update
+                </button>
+              </div>
+              <p id="urlStatusMsg" class="mt-2 min-h-[1rem] text-xs text-emerald-400"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots Showcase -->
+  <section id="screenshots" class="mx-auto max-w-6xl px-4 pt-14 pb-4 sm:px-6">
+    <div class="max-w-2xl">
+      <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Screenshots</h2>
+      <p class="mt-2 text-sm text-slate-400 sm:text-base">
+        Preview of the terminal launcher interface, startup Termux integration, and full-screen Settings &amp; About screen.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <figure class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/80 shadow-lg">
+        <div class="relative aspect-[16/10] w-full overflow-hidden bg-slate-950">
+          <img
+            id="shotImg1"
+            src="screenshot-terminal-home.png"
+            data-fallback="https://placehold.co/800x500/0b0f12/00f0ff?text=01+Terminal+Sessions"
+            onload="this.classList.remove('opacity-0'); this.nextElementSibling.classList.add('hidden');"
+            onerror="if (!this.dataset.triedFallback) { this.dataset.triedFallback='1'; this.src=this.dataset.fallback; } else { this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden'); }"
+            alt="TermLauncher multi-window terminal session and app dock preview"
+            class="h-full w-full object-cover opacity-0 transition-opacity duration-200"
+          />
+          <div class="flex h-full w-full flex-col items-center justify-center p-4 text-center">
+            <span class="font-mono text-xs text-cyan-400">screenshot-terminal-home.png</span>
+            <span class="mt-1 text-xs text-slate-400">Add screenshot-terminal-home.png or direct image URL</span>
+          </div>
+        </div>
+        <figcaption class="p-4">
+          <div class="font-mono text-xs text-cyan-400">01 • TERMINAL HOME</div>
+          <p class="mt-1 text-sm font-semibold text-white">Multi-Window Sessions &amp; Quick Chips</p>
+        </figcaption>
+      </figure>
+
+      <figure class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/80 shadow-lg">
+        <div class="relative aspect-[16/10] w-full overflow-hidden bg-slate-950">
+          <img
+            id="shotImg2"
+            src="screenshot-termux-permissions.png"
+            data-fallback="https://placehold.co/800x500/0f172a/34d399?text=02+Termux+%26+Permissions"
+            onload="this.classList.remove('opacity-0'); this.nextElementSibling.classList.add('hidden');"
+            onerror="if (!this.dataset.triedFallback) { this.dataset.triedFallback='1'; this.src=this.dataset.fallback; } else { this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden'); }"
+            alt="Automatic Termux connection and startup permissions preview"
+            class="h-full w-full object-cover opacity-0 transition-opacity duration-200"
+          />
+          <div class="flex h-full w-full flex-col items-center justify-center p-4 text-center">
+            <span class="font-mono text-xs text-emerald-400">screenshot-termux-permissions.png</span>
+            <span class="mt-1 text-xs text-slate-400">Add screenshot-termux-permissions.png or direct image URL</span>
+          </div>
+        </div>
+        <figcaption class="p-4">
+          <div class="font-mono text-xs text-emerald-400">02 • TERMUX &amp; PERMISSIONS</div>
+          <p class="mt-1 text-sm font-semibold text-white">Startup Permissions &amp; Termux Prefix</p>
+        </figcaption>
+      </figure>
+
+      <figure class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/80 shadow-lg sm:col-span-2 lg:col-span-1">
+        <div class="relative aspect-[16/10] w-full overflow-hidden bg-slate-950">
+          <img
+            id="shotImg3"
+            src="screenshot-settings-about.png"
+            data-fallback="https://placehold.co/800x500/172026/38bdf8?text=03+Settings+%26+About"
+            onload="this.classList.remove('opacity-0'); this.nextElementSibling.classList.add('hidden');"
+            onerror="if (!this.dataset.triedFallback) { this.dataset.triedFallback='1'; this.src=this.dataset.fallback; } else { this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden'); }"
+            alt="Full-screen SettingsActivity and About section preview"
+            class="h-full w-full object-cover opacity-0 transition-opacity duration-200"
+          />
+          <div class="flex h-full w-full flex-col items-center justify-center p-4 text-center">
+            <span class="font-mono text-xs text-sky-400">screenshot-settings-about.png</span>
+            <span class="mt-1 text-xs text-slate-400">Add screenshot-settings-about.png or direct image URL</span>
+          </div>
+        </div>
+        <figcaption class="p-4">
+          <div class="font-mono text-xs text-sky-400">03 • SETTINGS &amp; ABOUT</div>
+          <p class="mt-1 text-sm font-semibold text-white">Full-Window Customization &amp; App Info</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section id="features" class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="max-w-2xl">
+      <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Core Features</h2>
+      <p class="mt-2 text-sm text-slate-400 sm:text-base">
+        Designed for fast terminal workflows, seamless device integration, and clean full-screen configuration.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Feature 1 -->
+      <article class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 transition hover:border-cyan-500/40">
+        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 font-mono text-sm font-bold text-cyan-400">
+          01
+        </div>
+        <h3 class="text-base font-bold text-white">Startup Permissions &amp; Storage</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-400">
+          Requests required runtime permissions on launch and prepares quick storage shortcuts under <code class="text-slate-200">~/storage</code>.
+        </p>
+      </article>
+
+      <!-- Feature 2 -->
+      <article class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 transition hover:border-cyan-500/40">
+        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 font-mono text-sm font-bold text-cyan-400">
+          02
+        </div>
+        <h3 class="text-base font-bold text-white">Automatic Termux Connection</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-400">
+          Detects Termux automatically on startup and connects accessible Termux paths alongside the app prefix without needing an open Termux session.
+        </p>
+      </article>
+
+      <!-- Feature 3 -->
+      <article class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 transition hover:border-cyan-500/40">
+        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 font-mono text-sm font-bold text-cyan-400">
+          03
+        </div>
+        <h3 class="text-base font-bold text-white">Full-Screen Settings &amp; About</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-400">
+          Opens a dedicated full-window Settings screen with an About section via the top-bar Settings button, menu, or commands.
+        </p>
+      </article>
+
+      <!-- Feature 4 -->
+      <article class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 transition hover:border-cyan-500/40">
+        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 font-mono text-sm font-bold text-cyan-400">
+          04
+        </div>
+        <h3 class="text-base font-bold text-white">Multi-Window Sessions</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-400">
+          Create, switch, and manage multiple terminal windows alongside quick command chips and an installed apps drawer.
+        </p>
+      </article>
+
+      <!-- Feature 5 -->
+      <article class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 transition hover:border-cyan-500/40">
+        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 font-mono text-sm font-bold text-cyan-400">
+          05
+        </div>
+        <h3 class="text-base font-bold text-white">Themes, Fonts &amp; Wallpapers</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-400">
+          Personalize UI styles, prompt formats, font families, zoom/font sizes, text/prompt colors, background tint, and custom wallpapers.
+        </p>
+      </article>
+
+      <!-- Feature 6 -->
+      <article class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 transition hover:border-cyan-500/40">
+        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 font-mono text-sm font-bold text-cyan-400">
+          06
+        </div>
+        <h3 class="text-base font-bold text-white">Packages, Audio &amp; Background</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-400">
+          Install/update packages via <code class="text-slate-200">pkg</code>, inspect system info, play local audio files, and run background session support.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Commands & Install Notes -->
+  <section id="commands" class="border-t border-slate-800/70 bg-slate-900/40">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <div class="grid gap-8 lg:grid-cols-2">
+        <div>
+          <h2 class="text-xl font-bold text-white sm:text-2xl">Quick Commands</h2>
+          <p class="mt-1.5 text-sm text-slate-400">Common commands you can run directly inside TermLauncher.</p>
+
+          <div class="mt-5 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 font-mono text-xs sm:text-sm">
+            <div class="flex items-center justify-between border-b border-slate-800/90 px-4 py-3">
+              <span class="text-cyan-400">sysinfo</span>
+              <span class="text-slate-400">Environment &amp; prefix info</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-slate-800/90 px-4 py-3">
+              <span class="text-cyan-400">bin</span>
+              <span class="text-slate-400">List available binaries</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-slate-800/90 px-4 py-3">
+              <span class="text-cyan-400">pkg update &amp;&amp; pkg install &lt;pkg&gt;</span>
+              <span class="text-slate-400">Sync &amp; install packages</span>
+            </div>
+            <div class="flex items-center justify-between px-4 py-3">
+              <span class="text-cyan-400">settings / about</span>
+              <span class="text-slate-400">Open full-screen Settings &amp; About</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-white sm:text-2xl">Installation &amp; Notes</h2>
+          <p class="mt-1.5 text-sm text-slate-400">Helpful details before installing on your Android device.</p>
+
+          <ul class="mt-5 space-y-3 rounded-2xl border border-slate-800 bg-slate-950/90 p-5 text-sm text-slate-300">
+            <li class="flex gap-2.5">
+              <span class="font-mono text-cyan-400">•</span>
+              <span>Enable <strong>Install unknown apps</strong> for your browser or file manager if sideloading the APK.</span>
+            </li>
+            <li class="flex gap-2.5">
+              <span class="font-mono text-cyan-400">•</span>
+              <span>Approve startup permission dialogs so notifications and storage shortcuts under <code class="text-slate-100">~/storage</code> work smoothly.</span>
+            </li>
+            <li class="flex gap-2.5">
+              <span class="font-mono text-cyan-400">•</span>
+              <span>Full-screen interactive terminal editors such as <code class="text-slate-100">nano</code> require a PTY session rather than a non-PTY pipe stream.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-400">
+    <div class="mx-auto max-w-6xl px-4">
+      TermLauncher • Version 2.5 (Build 10)
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const inputEl = document.getElementById('customApkUrl');
+      const applyBtn = document.getElementById('applyUrlBtn');
+      const primaryLink = document.getElementById('primaryDownloadLink');
+      const statusMsg = document.getElementById('urlStatusMsg');
+
+      function updateDownloadUrl() {
+        try {
+          if (!inputEl || !primaryLink) return;
+          const raw = inputEl.value.trim();
+          if (!raw) {
+            if (statusMsg) statusMsg.textContent = 'Please enter a valid URL.';
+            return;
+          }
+          const parsed = new URL(raw);
+          if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+            if (statusMsg) statusMsg.textContent = 'Only http:// or https:// links are supported.';
+            return;
+          }
+          primaryLink.href = parsed.toString();
+          if (statusMsg) statusMsg.textContent = 'Download link updated.';
+        } catch (err) {
+          if (statusMsg) statusMsg.textContent = 'Invalid URL format.';
+        }
+      }
+
+      if (applyBtn) {
+        applyBtn.addEventListener('click', updateDownloadUrl);
+      }
+      if (inputEl) {
+        inputEl.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            updateDownloadUrl();
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
